@@ -30,7 +30,11 @@ public class Args {
         return distinctFlags.size() == splitArgs.size();
     }
 
+    private boolean isEveryArgValidated() {
+        return splitArgs.stream().allMatch(args -> new Arg(args).isValidated());
+    }
+
     public boolean validate() {
-        return isStartWithMiddleLine() && isFlagDistinct();
+        return isStartWithMiddleLine() && isFlagDistinct() && isEveryArgValidated();
     }
 }

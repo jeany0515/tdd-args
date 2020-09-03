@@ -42,4 +42,43 @@ public class ArgsTest {
         //then
         assertEquals(false, expected);
     }
+
+    @Test
+    void should_return_false_when_verify_given_args_with_flag_pb() {
+        //given
+        String argsInput = "-pb -p 8080 -l ";
+
+        //when
+        Args args =  new Args(argsInput);
+        boolean expected = args.validate();
+
+        //then
+        assertEquals(false, expected);
+    }
+
+    @Test
+    void should_return_false_when_verify_given_args_with_value_separated_with_blank_space() {
+        //given
+        String argsInput = " -p 8080 123 -l ";
+
+        //when
+        Args args =  new Args(argsInput);
+        boolean expected = args.validate();
+
+        //then
+        assertEquals(false, expected);
+    }
+
+    @Test
+    void should_return_true_when_verify_given_args_in_the_right_way() {
+        //given
+        String argsInput = " -p 8080  -l ";
+
+        //when
+        Args args =  new Args(argsInput);
+        boolean expected = args.validate();
+
+        //then
+        assertEquals(true, expected);
+    }
 }
