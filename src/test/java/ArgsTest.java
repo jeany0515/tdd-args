@@ -16,6 +16,19 @@ public class ArgsTest {
         assertEquals(true, expected);
     }
 
+    @Test
+    void should_return_false_when_verify_given_args_not_start_with_middle_line() {
+        //given
+        String argsInput = "   l  -p   ";
+
+        //when
+        Args args =  new Args(argsInput);
+        boolean expected = args.validate();
+
+        //then
+        assertEquals(false, expected);
+    }
+
 
     @Test
     void should_return_false_when_verify_given_args_with_duplicate_flag() {
