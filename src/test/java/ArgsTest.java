@@ -1,4 +1,3 @@
-import Args.Args;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,5 +14,19 @@ public class ArgsTest {
 
         //then
         assertEquals(true, expected);
+    }
+
+
+    @Test
+    void should_return_false_when_verify_given_args_with_duplicate_flag() {
+        //given
+        String argsInput = "-l -p 8080 -l ";
+
+        //when
+        Args args =  new Args(argsInput);
+        boolean expected = args.validate();
+
+        //then
+        assertEquals(false, expected);
     }
 }
