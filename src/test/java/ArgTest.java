@@ -28,4 +28,17 @@ public class ArgTest {
         //then
         assertEquals(true, expected);
     }
+
+    @Test
+    void should_return_false_when_verify_arg_given_value_with_blank_space() {
+        //given
+        String inputArg = "-p 1234 567";
+
+        //when
+        Arg arg = new Arg(inputArg);
+        boolean expected = arg.isValidated();
+
+        //then
+        assertEquals(false, expected);
+    }
 }

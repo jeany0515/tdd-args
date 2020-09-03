@@ -12,7 +12,11 @@ public class Arg {
         return args.get(0).length() == 2;
     }
 
+    private boolean isValueVerified() {
+        return args.size() <=2;
+    }
+
     public boolean isValidated() {
-        return isFlagVerified();
+        return isFlagVerified() && isValueVerified();
     }
 }
