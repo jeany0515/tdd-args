@@ -41,4 +41,17 @@ public class ArgTest {
         //then
         assertEquals(false, expected);
     }
+
+    @Test
+    void should_return_true_when_verify_arg_given_many_blank_space_between_flag_and_value() {
+        //given
+        String inputArg = "-p   1234";
+
+        //when
+        Arg arg = new Arg(inputArg);
+        boolean expected = arg.isValidated();
+
+        //then
+        assertEquals(true, expected);
+    }
 }
