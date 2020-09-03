@@ -6,7 +6,7 @@ public class ArgTest {
     @Test
     void should_return_false_when_verify_arg_given_flag_pb() {
         //given
-        String inputArg = "-pb";
+        String inputArg = "pb";
 
         //when
         Arg arg = new Arg(inputArg);
@@ -19,7 +19,7 @@ public class ArgTest {
     @Test
     void should_return_true_when_verify_arg_given_flag_p() {
         //given
-        String inputArg = "-p";
+        String inputArg = "p";
 
         //when
         Arg arg = new Arg(inputArg);
@@ -32,7 +32,7 @@ public class ArgTest {
     @Test
     void should_return_false_when_verify_arg_given_value_with_blank_space() {
         //given
-        String inputArg = "-p 1234 567";
+        String inputArg = "p 1234 567";
 
         //when
         Arg arg = new Arg(inputArg);
@@ -42,16 +42,16 @@ public class ArgTest {
         assertEquals(false, expected);
     }
 
-    @Test
-    void should_return_true_when_verify_arg_given_many_blank_space_between_flag_and_value() {
-        //given
-        String inputArg = "-p   1234";
-
-        //when
-        Arg arg = new Arg(inputArg);
-        boolean expected = arg.isValidated();
-
-        //then
-        assertEquals(true, expected);
-    }
+//    @Test
+//    void should_return_true_when_verify_arg_given_many_blank_space_between_flag_and_value() {
+//        //given
+//        String inputArg = "p 1234";
+//
+//        //when
+//        Arg arg = new Arg(inputArg);
+//        boolean expected = arg.isValidated();
+//
+//        //then
+//        assertEquals(true, expected);
+//    }
 }

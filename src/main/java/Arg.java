@@ -9,7 +9,7 @@ public class Arg {
     }
 
     private boolean isFlagVerified() {
-        return args.get(0).length() == 2;
+        return args.get(0).length() == 1;
     }
 
     private boolean isValueVerified() {
