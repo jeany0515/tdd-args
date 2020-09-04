@@ -10,10 +10,10 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(true, expected);
+        assertEquals(true, actual);
     }
 
     @Test
@@ -23,10 +23,10 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
 
@@ -37,10 +37,10 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
     @Test
@@ -50,10 +50,10 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
     @Test
@@ -63,10 +63,10 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
     @Test
@@ -76,9 +76,9 @@ public class ArgsTest {
 
         //when
         Args args =  new Args(argsInput);
-        boolean expected = args.validate();
+        boolean actual = args.validate();
 
         //then
-        assertEquals(true, expected);
+        assertEquals(true, actual);
     }
 }

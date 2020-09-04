@@ -10,10 +10,10 @@ public class ArgTest {
 
         //when
         Arg arg = new Arg(inputArg);
-        boolean expected = arg.isValidated();
+        boolean actual = arg.isValidated();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
     @Test
@@ -23,10 +23,10 @@ public class ArgTest {
 
         //when
         Arg arg = new Arg(inputArg);
-        boolean expected = arg.isValidated();
+        boolean actual = arg.isValidated();
 
         //then
-        assertEquals(true, expected);
+        assertEquals(true, actual);
     }
 
     @Test
@@ -36,10 +36,10 @@ public class ArgTest {
 
         //when
         Arg arg = new Arg(inputArg);
-        boolean expected = arg.isValidated();
+        boolean actual = arg.isValidated();
 
         //then
-        assertEquals(false, expected);
+        assertEquals(false, actual);
     }
 
 //    @Test
@@ -49,9 +49,9 @@ public class ArgTest {
 //
 //        //when
 //        Arg arg = new Arg(inputArg);
-//        boolean expected = arg.isValidated();
+//        boolean actual = arg.isValidated();
 //
 //        //then
-//        assertEquals(true, expected);
+//        assertEquals(true, actual);
 //    }
 }
