@@ -32,4 +32,33 @@ public class ArgTest {
         //then
         assertEquals(true, actual);
     }
+
+
+    @Test
+    void should_return_false_when_get_value_flag_given_arg_flag_p_type_boolean() {
+        //given
+        String input = "p";
+        Schema schema = new Schema("p:boolean");
+        Arg arg = new Arg(input, schema);
+
+        //when
+        Object actual = arg.getValue();
+
+        //then
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void should_return_0_when_get_value_flag_given_arg_flag_p_type_number() {
+        //given
+        String input = "p";
+        Schema schema = new Schema("p:number");
+        Arg arg = new Arg(input, schema);
+
+        //when
+        Object actual = arg.getValue();
+
+        //then
+        assertEquals(0, actual);
+    }
 }

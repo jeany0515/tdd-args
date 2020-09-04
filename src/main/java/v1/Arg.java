@@ -8,17 +8,18 @@ public class Arg {
     public Arg(String arg, Schema schema) {
         String[] flagValue = arg.split("\\s+", 2);
         this.flag = flagValue[0];
-        this.value = flagValue[1];
+        this.value = flagValue.length == 2 ? flagValue[1] : "";
         this.schema = schema;
     }
 
     public Object getValue() {
+
         String flagType = schema.getTypeOf(flag);
         if (flagType.equals("number")) {
-            return Integer.parseInt(value);
+            return value.isEmpty() ? 0 : Integer.parseInt(value);
         }
         if (flagType.equals("boolean")) {
-            return Boolean.parseBoolean(value);
+            return !value.isEmpty() && Boolean.parseBoolean(value);
         }
         return value;
     }
