@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Schema {
@@ -31,5 +32,27 @@ public class Schema {
         }
 
         return true;
+    }
+
+    public  Map<String, Object> parser(Map<String, String> argsInput) {
+        Map<String, Object> result = new HashMap<>();
+        for (String key : schema.keySet()) {
+            String valueType = schema.get(key);
+            String flagValue = argsInput.get(key);
+            Object value = flagValue;
+            if (valueType.equals("number")) {
+                value = argsInput.containsKey(key) ? Integer.parseInt(flagValue) : 0;
+            }
+            if (valueType.equals("boolean")) {
+                value = argsInput.containsKey(key) && Boolean.parseBoolean(flagValue);
+            }
+            if (valueType.equals("string")) {
+                value = argsInput.containsKey(key) ? flagValue : "";
+            }
+
+            result.put(key, value);
+        }
+
+        return  result;
     }
 }

@@ -55,4 +55,54 @@ public class SchemaTest {
         //then
         assertEquals(true, expected);
     }
+
+    @Test
+    void should_return_args_detail_when_parser_given_args_with_flag_and_value_match_schema() {
+        //given
+        Map<String, String> schemaInput = new HashMap<>();
+        schemaInput.put("l", "number");
+        schemaInput.put("p", "string");
+        schemaInput.put("b", "boolean");
+        Map<String, String> argsInput = new HashMap<>();
+        argsInput.put("l", "1234");
+        argsInput.put("p", "hello");
+        argsInput.put("b", "true");
+
+        Map<String, Object> argsResult = new HashMap<>();
+        argsResult.put("l", 1234);
+        argsResult.put("p", "hello");
+        argsResult.put("b", true);
+
+
+        //when
+        Schema schema = new Schema(schemaInput);
+        Map<String, Object> expected = schema.parser(argsInput);
+
+        //then
+        assertEquals(argsResult, expected);
+    }
+
+    @Test
+    void should_return_args_detail_with_default_value_when_parser_given_args_less_than_schema() {
+        //given
+        Map<String, String> schemaInput = new HashMap<>();
+        schemaInput.put("l", "number");
+        schemaInput.put("p", "string");
+        schemaInput.put("b", "boolean");
+        Map<String, String> argsInput = new HashMap<>();
+        argsInput.put("l", "1234");
+
+        Map<String, Object> argsResult = new HashMap<>();
+        argsResult.put("l", 1234);
+        argsResult.put("p", "");
+        argsResult.put("b", false);
+
+
+        //when
+        Schema schema = new Schema(schemaInput);
+        Map<String, Object> expected = schema.parser(argsInput);
+
+        //then
+        assertEquals(argsResult, expected);
+    }
 }
