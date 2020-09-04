@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NewSchemaTest {
+public class SchemaTest {
     @Test
     void should_return_boolean_when_get_type_given_schema_p_with_boolean() {
         //given
