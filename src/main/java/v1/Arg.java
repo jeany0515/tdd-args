@@ -12,6 +12,10 @@ public class Arg {
         this.schema = schema;
     }
 
+    public String getFlag() {
+        return this.flag;
+    }
+
     public Object getValue() {
 
         String flagType = schema.getTypeOf(flag);
