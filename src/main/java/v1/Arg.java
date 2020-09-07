@@ -20,10 +20,10 @@ public class Arg {
 
         String flagType = schema.getTypeOf(flag);
         if (flagType.equals("number")) {
-            return value.isEmpty() ? 0 : Integer.parseInt(value);
+            return value.isEmpty() ? schema.getDefaultValue(flag) : Integer.parseInt(value);
         }
         if (flagType.equals("boolean")) {
-            return !value.isEmpty() && Boolean.parseBoolean(value);
+            return value.isEmpty() ? schema.getDefaultValue(flag) : Boolean.parseBoolean(value);
         }
         return value;
     }
