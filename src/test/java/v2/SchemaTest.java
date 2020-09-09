@@ -2,9 +2,6 @@ package v2;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -23,29 +20,16 @@ public class SchemaTest {
     }
 
     @Test
-    void should_return_true_when_is_contain_flag_given_flag_p_and_schema_p_integer() {
-        //given
-        String flag = "p";
-        Schema schema = new Schema("p:integer");
-
-        //when
-        boolean actual = schema.isContain(flag);
-
-        //then
-        assertEquals(true, actual);
-    }
-
-    @Test
-    void should_return_false_when_is_contain_flag_given_flag_p_and_schema_l_integer() {
+    void should_return_error_message_when_get_type_given_flag_p_and_schema_l_integer() {
         //given
         String flag = "p";
         Schema schema = new Schema("l:integer");
 
         //when
-        boolean actual = schema.isContain(flag);
+        Exception exception = assertThrows(RuntimeException.class, () -> schema.getTypeOf(flag));
 
         //then
-        assertEquals(false, actual);
+        assertEquals("Flag not found", exception.getMessage());
     }
 
     @Test

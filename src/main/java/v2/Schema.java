@@ -24,10 +24,10 @@ public class Schema {
     }
 
     public String getTypeOf(String flag) {
-        return flagTypes.get(flag);
-    }
-
-    public boolean isContain(String flag) {
-        return flagTypes.containsKey(flag);
+        String type = flagTypes.get(flag);
+        if (type == null) {
+            throw new RuntimeException("Flag not found");
+        }
+        return type;
     }
 }
