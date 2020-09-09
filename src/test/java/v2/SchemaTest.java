@@ -1,7 +1,12 @@
 package v2;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SchemaTest {
     @Test
@@ -41,5 +46,15 @@ public class SchemaTest {
 
         //then
         assertEquals(false, actual);
+    }
+
+    @Test
+    void should_return_error_message_when_validate_given_schema_duplicate_flag() {
+        //when
+        Exception exception = assertThrows(RuntimeException.class, () ->
+                new Schema("l:integer l:boolean"));
+
+        //then
+        assertEquals("Schema flag duplicated", exception.getMessage());
     }
 }

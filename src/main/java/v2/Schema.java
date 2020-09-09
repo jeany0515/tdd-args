@@ -12,8 +12,15 @@ public class Schema {
         List<String> flagSchemas = Arrays.asList(schema.split(" "));
         flagSchemas.forEach(flagSchema -> {
             String[] flagTypes = flagSchema.split(":");
+            isFlagDuplicated(flagTypes[0]);
             this.flagTypes.put(flagTypes[0], flagTypes[1]);
         });
+    }
+
+    private void isFlagDuplicated(String flag) {
+        if(flagTypes.containsKey(flag)) {
+            throw new RuntimeException("Schema flag duplicated");
+        }
     }
 
     public String getTypeOf(String flag) {
