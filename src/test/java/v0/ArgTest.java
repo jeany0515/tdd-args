@@ -1,3 +1,5 @@
+package v0;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,7 +50,7 @@ public class ArgTest {
 //        String inputArg = "p 1234";
 //
 //        //when
-//        Arg arg = new Arg(inputArg);
+//        v0.Arg arg = new v0.Arg(inputArg);
 //        boolean actual = arg.isValidated();
 //
 //        //then
