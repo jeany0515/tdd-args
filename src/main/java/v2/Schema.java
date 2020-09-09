@@ -19,4 +19,8 @@ public class Schema {
     public String getTypeOf(String flag) {
         return flagTypes.get(flag);
     }
+
+    public boolean isContain(String flag) {
+        return flagTypes.containsKey(flag);
+    }
 }
